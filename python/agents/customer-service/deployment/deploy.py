@@ -74,7 +74,12 @@ else:
     logging.debug("deploying agent to agent engine:")
     remote_app = agent_engines.create(
         app,
+        display_name="Customer Service Agent",
         requirements=[
+            "google-cloud-aiplatform[adk,agent_engine]>=1.93.0",
+            "google-adk>=1.0.0",
+            "pydantic-settings>=2.8.1",
+            "cloudpickle>=3.1.1",
             AGENT_WHL_FILE,
         ],
         extra_packages=[AGENT_WHL_FILE],
